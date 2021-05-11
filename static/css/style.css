@@ -1,0 +1,92 @@
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    /* background-color: #edf2f9; */
+    background-color: #f9f9f9;
+}
+
+/* Navbar */
+nav.navbar {
+    background-color: #ffffff;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* Card */
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+}
+
+a.card-title {
+    font-size: 18px;
+    text-decoration: none;
+}
+
+a.card-title:hover {
+    text-decoration: underline;
+}
+
+.card {
+    background-color: transparent;
+    border: none;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    justify-content: center;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Text */
+.text-bold {
+    font-weight: bold;
+}
+
+/* List Video */
+
+.thumb-list {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    margin: 0;
+}
+
+.list-group-item.list-video {
+    padding: 0;
+}
+
+.list-video p {
+    margin: 0;
+}
+
+.aksi {
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.aksi-item {
+    margin: 0 .5rem;
+}
+
+.aksi-item:hover {
+    border-bottom: 1px solid #000;
+}
+
+.video-ku {
+    width: 50%;
+}
+
+.badge.bg-light {
+    background-color: transparent !important;
+    color:#616161 !important;
+}

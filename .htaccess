@@ -1,0 +1,2 @@
+ErrorDocument 404 http://localhost/videoaja/
+ErrorDocument 500 http://localhost/videoaja/
