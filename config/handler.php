@@ -27,7 +27,9 @@ function daftar($data) {
 
     $hasil = queryDB($query);
 
-    $_SESSION['alert'] = $hasil;
+    // $_SESSION['alert'] = $hasil;
+
+    return $hasil;
 
 }
 
@@ -49,9 +51,9 @@ function login($data) {
         if ($pass === $d['pass_user']) {
             // Cek Status User
             if ($d['status_user'] == 0) {
-                echo "Akun anda diblokir! Silahkan hubungi admin.";
-                header("Refresh:5; url=index.php");
-                die();
+
+                return 0;
+
             } elseif ($d['status_user'] == 1) {
 
                 session_start();
@@ -62,10 +64,10 @@ function login($data) {
                 cekPangkat($d['pangkat']);
             }
         } elseif ($pass != $d['pass_user']){
-            echo "Email atau password tidak sesuai..";
-            header("Refresh:2; url='login.php'");
-            die();
+            return false;
         }
+    } else {
+        return false;
     }
 
 }

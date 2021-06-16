@@ -10,7 +10,18 @@ if (isset($_POST['btnlogin'])) {
 
     unset($_POST['btnlogin']);
 
-    login($_POST);
+    $hasil = login($_POST);
+
+    // var_dump($hasil);
+    // die();
+
+    if ($hasil === 0) {
+        $notif['pesan'] = "Akun anda diblokir! Silahkan hubungi admin."; 
+        $notif['alert'] = "danger";
+    } elseif($hasil == false) {
+        $notif['pesan'] = "Login gagal. Silahkan periksa lagi akun anda!";
+        $notif['alert'] = "warning"; 
+    }
 }
 
 ?>
@@ -20,6 +31,15 @@ if (isset($_POST['btnlogin'])) {
 <form action="" method="POST">
 <div class="containter mt-5 d-flex justify-content-center">
         <div class="col-md-5">
+
+            <!-- Notifikasi -->
+            <?php if (isset($notif)) : ?>
+            <div class="alert alert-<?= $notif['alert'] ?>" role="alert">
+                <?= $notif['pesan'] ?>
+            </div>
+            <?php endif; ?>
+            <!-- // Notifikasi // -->
+
             <h4 class="text-bold">Login</h4>
             <div class="input-group mb-3">
                 <input type="email" class="form-control" name="email_log" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">

@@ -42,6 +42,12 @@ if (isset($_GET['status'])) {
 
 <div class="list-group mb-3">
 
+    <?php if (count($video_user) < 1) : ?>
+    <div class="alert alert-secondary" role="alert">
+        Tidak ada video. <strong>Upload sekarang!</strong>
+    </div>
+    <?php endif; ?>
+
     <?php foreach($video_user as $v) : ?>
     <div class="list-group-item list-group-item-action d-flex align-items-center list-video flex-wrap">
         <img class="thumb-list me-2" src="../static/thumbnails/<?= $v['id_user'] ?>/<?= $v['thumb_video'] ?>">

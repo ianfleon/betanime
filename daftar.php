@@ -14,6 +14,15 @@ if (isset($_POST['btndaftar'])) {
 
     $hasil = daftar($_POST);
 
+    if ($hasil > 0) {
+        $notif['pesan'] = "Akun berhasil dibuat. Silahkan login!"; 
+        $notif['alert'] = "success";
+        header("Refresh: 2; url='login.php'");
+    } else {
+        $notif['pesan'] = "Akun gagal dibuat";
+        $notif['alert'] = "danger";
+    }
+
 }
 
 ?>
@@ -28,15 +37,15 @@ if (isset($_POST['btndaftar'])) {
 <div class="containter mt-5 d-flex justify-content-center">
 
     <div class="col-md-5">
-        <?php
-            if (isset($_SESSION['alert'])) {
-                if ($_SESSION['alert'] > 0) {
-                    alert("Berhasil daftar!", "success");
-                } else {
-                    alert("Data gagal ditambahkan", "warning");
-                }
-            }
-        ?>
+
+        <!-- Notifikasi -->
+        <?php if (isset($notif)) : ?>
+            <div class="alert alert-<?= $notif['alert'] ?>" role="alert">
+                <?= $notif['pesan'] ?>
+            </div>
+        <?php endif; ?>
+        <!-- // Notifikasi // -->
+
         <h4 class="text-bold">Daftar Akun</h4>
         <div class="input-group mb-3">
             <input type="text" class="form-control" name="nama_user" placeholder="Nama Lengkap" aria-label="Nama" required>
