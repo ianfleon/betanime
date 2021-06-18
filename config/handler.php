@@ -183,4 +183,15 @@ function getDataByPage($query, $page = 1, $data_per_page = 3) {
     return $hasil;
 }
 
+function kirimPesan($data)
+{
+    $nama = $data['nama'];
+    $email = $data['email'];
+    $subjek = $data['subjek'];
+    $pesan = $data['pesan'];
+
+    $query = "INSERT INTO pesan_tbl VALUES(null, '$nama', '$email', '$subjek', '$pesan', null, '0')";
+    return queryDB($query);
+}
+
 ?>

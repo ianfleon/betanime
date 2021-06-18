@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2021 at 10:04 AM
+-- Generation Time: Jun 18, 2021 at 04:47 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `betanime_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pesan_tbl`
+--
+
+CREATE TABLE `pesan_tbl` (
+  `id_pesan` int(11) NOT NULL,
+  `nama_pengirim` varchar(100) NOT NULL,
+  `email_pengirim` varchar(100) NOT NULL,
+  `subjek_pesan` varchar(100) NOT NULL,
+  `isi_pesan` text NOT NULL,
+  `waktu_kirim` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status_baca` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -69,6 +85,12 @@ CREATE TABLE `video_tbl` (
 --
 
 --
+-- Indexes for table `pesan_tbl`
+--
+ALTER TABLE `pesan_tbl`
+  ADD PRIMARY KEY (`id_pesan`);
+
+--
 -- Indexes for table `user_tbl`
 --
 ALTER TABLE `user_tbl`
@@ -85,16 +107,22 @@ ALTER TABLE `video_tbl`
 --
 
 --
+-- AUTO_INCREMENT for table `pesan_tbl`
+--
+ALTER TABLE `pesan_tbl`
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `user_tbl`
 --
 ALTER TABLE `user_tbl`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `video_tbl`
 --
 ALTER TABLE `video_tbl`
-  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,3 +1,20 @@
+<?php 
+
+if (isset($_POST['kirim'])) {
+    require_once 'config/handler.php';
+    if (kirimPesan($_POST) > 0) {
+        $notif['pesan'] = "Pesan terkirim!";
+        $notif['alert'] = "success";
+        header("Refresh: 3; url='index.php'");
+    } else {
+        $notif['pesan'] = "Pesan gagal terkirim.";
+        $notif['alert'] = "warning";
+        header("Refresh: 3; url='index.php'");
+    }
+}
+
+?>
+
 <?php require_once 'partial/head.php' ?>
 
 <form action="" method="POST">
@@ -17,28 +34,28 @@
 
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="nama"/>
                 <div id="emailHelp" class="form-text">Contoh: Budi Doremifasolasido</div>
             </div>
 
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" class="form-control" name="email"/>
                 <div id="emailHelp" class="form-text">Berikan kami email aktif agar mudah dikonfirmasi</div>
             </div>
 
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Subjek</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="subjek"/>
             </div>
 
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Pesan</label>
-                <textarea type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
+                <textarea class="form-control" name="pesan"></textarea>
             </div>
 
             <div class="input-group mb-3">
-                <button class="btn btn-primary" name="btnlogin">Kirim</button>
+                <button class="btn btn-primary" name="kirim">Kirim</button>
             </div>
         </div>
 

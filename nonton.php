@@ -26,13 +26,17 @@ if (isset($_GET['v'])) {
 // download video
 if (isset($_GET['download'])) {
 
+
         $file = 'videos/' . $video['id_user'] . '/' . $video['nama_video'];
+
+        $format_video = explode('.', $video['nama_video'])[1];
+        $format_video = "." . $format_video;
 
         if (file_exists($file)) {
 
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename='.basename('[Betanime] ' . $video['judul']));
+            header('Content-Disposition: attachment; filename='.basename('[Betanime] ' . $video['judul']) . $format_video);
             header('Content-Transfer-Encoding: binary');
             header('Expires: 0');
             header('Cache-Control: private');
