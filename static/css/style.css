@@ -6,11 +6,13 @@ body {
 
 /* Navbar */
 nav.navbar {
-    background-color: #ffffff;
+    /*background-color: #ffffff;*/
+    background-color: #34495e;
 }
 
 .navbar-brand {
     font-weight: bold;
+    color: white !important;
 }
 
 /* Card */
@@ -36,7 +38,7 @@ a.card-title:hover {
 /* Footer */
 .footer {
     width: 100%;
-    background-color: rgb(240, 240, 240);
+    /*background-color: rgb(240, 240, 240);*/
     justify-content: center;
     padding: 1rem 0;
     display: flex;
@@ -89,4 +91,12 @@ a.card-title:hover {
 .badge.bg-light {
     background-color: transparent !important;
     color:#616161 !important;
+}
+
+.img-responsive {
+    width: 100%;
+}
+
+.min-vh {
+    min-height: 70vh;
 }

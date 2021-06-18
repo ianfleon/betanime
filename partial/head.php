@@ -17,6 +17,13 @@ if (isset($_SESSION['admin_logined'])) {
   $link_button = 'admin/';
 }
 
+
+$dir = 'betanime';
+
+if (!defined("BASE_URL")) {
+    define("BASE_URL", "http://localhost/" . $dir);
+}
+
 ?>
 
 <!doctype html>
@@ -26,15 +33,11 @@ if (isset($_SESSION['admin_logined'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>/static/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/static/css/style.css">
 
     <title><?= (isset($title)) ? $title . " | Betanime" : "Betanime" ?></title>
 </head>
@@ -52,11 +55,11 @@ if (isset($_SESSION['admin_logined'])) {
         <li class="nav-item">
             <form class="d-flex" action="index.php" method="GET">
                 <input name="cari" class="form-control me-2" type="search" placeholder="Masukan kata kunci.." aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Cari</button>
+                <button class="btn btn-outline-light" type="submit">Cari</button>
             </form>
         </li>
       </ul>
-        <a href="<?= $link_button ?>" class="btn btn-outline-primary ms-auto"><?= $title_button ?></a>
+        <a href="<?= $link_button ?>" class="btn btn-outline-light ms-auto"><?= $title_button ?></a>
     </div>
   </div>
 </nav>

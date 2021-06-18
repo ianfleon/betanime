@@ -29,8 +29,11 @@ if (isset($_POST['simpan'])) {
     $hasil_db = editVideo($_POST, $_FILES);
 
     if( $hasil_db > 0 ) {
-      header("Refresh: 1; url=index.php");
-      alert('Berhasil disimpan!', 'success');
+        $notif['pesan'] = "Data berhasil disimpan!";
+        $notif['alert'] = "success";
+    } else {
+        $notif['pesan'] = "Data gagal disimpan!";
+        $notif['alert'] = "danger";
     }
 
 }
@@ -75,7 +78,8 @@ $total_req = queryGet("SELECT * FROM video_tbl WHERE status_video = 0 ORDER BY i
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="http://localhost/videoaja/static/css/style.css"/>
+
+    <link rel="stylesheet" href="<?= BASE_URL ?>/static/css/style.css"/>
 
     <title>Halaman Admin | Betanime</title>
 </head>
@@ -85,20 +89,18 @@ $total_req = queryGet("SELECT * FROM video_tbl WHERE status_video = 0 ORDER BY i
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
     <a class="navbar-brand text-bold" href="<?= BASE_URL ?>">BETANIME</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
   </div>
 </nav>
 
 <!-- List -->
-<div class="container mt-3 mb-5">
+<div class="container mt-3 mb-5 min-vh">
     <div class="row">
 
         <!-- Side Menu -->
         <div class="col-md-3 mb-3">
             <div class="list-group">
                 <a href="?view=request" class="list-group-item list-group-item-action"><img src="../static/icons/play-list.svg"> Permintaan Video <span class="badge bg-primary rounded-pill"><?= count($total_req) ?></span></a>
+                <a href="?view=pesan" class="list-group-item list-group-item-action"><img src="../static/icons/mail.svg"> Pesan <span class="badge bg-primary rounded-pill"><?= count($total_req) ?></span></a>
                 <a href="?view=users" class="list-group-item list-group-item-action"><img src="../static/icons/users.svg"> Users</a>
                 <a href="<?= BASE_URL ?>/admin/?auth=logout" class="list-group-item list-group-item-dark mt-1"><img src="../static/icons/logout.svg"> Logout</a>
             </div>
@@ -127,5 +129,4 @@ $total_req = queryGet("SELECT * FROM video_tbl WHERE status_video = 0 ORDER BY i
     </div>
 </div>
 
-</body>
-</html>
+<?php require_once '../partial/footer.php'; ?>

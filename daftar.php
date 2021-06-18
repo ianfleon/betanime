@@ -34,9 +34,9 @@ if (isset($_POST['btndaftar'])) {
 </div>
 
 <form action="" method="POST">
-<div class="containter mt-5 d-flex justify-content-center">
+<div class="containter mt-5">
 
-    <div class="col-md-5">
+    <div class="col-md-5 mx-auto shadow p-3 mb-5 bg-body rounded">
 
         <!-- Notifikasi -->
         <?php if (isset($notif)) : ?>
@@ -46,7 +46,8 @@ if (isset($_POST['btndaftar'])) {
         <?php endif; ?>
         <!-- // Notifikasi // -->
 
-        <h4 class="text-bold">Daftar Akun</h4>
+        <h4 class="text-bold text-muted bg-light py-2">☁️ Daftar Akun</h4>
+
         <div class="input-group mb-3">
             <input type="text" class="form-control" name="nama_user" placeholder="Nama Lengkap" aria-label="Nama" required>
         </div>
@@ -64,5 +65,4 @@ if (isset($_POST['btndaftar'])) {
 </div>
 </form>
 
-</body>
-</html>
+<?php require_once 'partial/footer.php'; ?>

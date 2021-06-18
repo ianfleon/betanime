@@ -56,12 +56,9 @@ function login($data) {
 
             } elseif ($d['status_user'] == 1) {
 
-                session_start();
-                $_SESSION['user_login_status'] = true;
-                $_SESSION['user_login_id'] = $d['id_user'];
-                $_SESSION['user_login_name'] = $d['nama_user'];
-    
-                cekPangkat($d['pangkat']);
+                session_start();    
+                cekPangkat($d['pangkat'], $d['id_user'], $d['nama_user']);
+
             }
         } elseif ($pass != $d['pass_user']){
             return false;
@@ -73,17 +70,25 @@ function login($data) {
 }
 
 /* Cek Pangkat Login */
-function cekPangkat($p) {
+function cekPangkat($p, $id, $nama) {
 
     if ($p == 'user') {
+
+        $_SESSION['user_login_status'] = true;
+        $_SESSION['user_login_id'] = $id;
+        $_SESSION['user_login_name'] = $nama;
+
         echo "Login berhasil! Tunggu sebentar..";
         header("Refresh:2; url='user'");
         die();
+
     } elseif ($p == 'admin') {
+
         $_SESSION['admin_logined'] = true;
         echo "Login berhasil! Tunggu sebentar..";
         header("Refresh:2; url='admin'");
         die();
+        
     } else {
         session_destroy();
     }

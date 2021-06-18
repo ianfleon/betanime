@@ -1,7 +1,7 @@
 <?php
 
 // redirect ke index.php
-header("Refresh:1; url=index.php");
+header("Refresh:3; url=index.php");
 
 ?>
 <!DOCTYPE html>
@@ -16,6 +16,8 @@ header("Refresh:1; url=index.php");
             display: flex;
             justify-content: center;
             flex-direction: column;
+/*            width: 100%;
+            height: 100%;*/
         }
 
         * {
@@ -23,14 +25,22 @@ header("Refresh:1; url=index.php");
         }
 
         .error-img {
-            width: 320px;
+            /*width: 320px;*/
             height: 260px;
             object-fit: cover;  
         }
+
+        .not-found {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
-    <img src="static/img/404.jpeg" class="error-img">
-    <p>Data tidak ditemukan..</p>
+    <div class="not-found">
+        <img src="static/img/404.png" class="error-img">
+        <p>Data tidak ditemukan..</p>
+    </div>
 </body>
 </html>

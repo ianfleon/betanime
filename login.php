@@ -29,8 +29,8 @@ if (isset($_POST['btnlogin'])) {
 <?php require_once 'partial/head.php' ?>
 
 <form action="" method="POST">
-<div class="containter mt-5 d-flex justify-content-center">
-        <div class="col-md-5">
+<div class="containter mt-5">
+        <div class="col-md-5 mx-auto shadow p-3 mb-5 bg-body rounded">
 
             <!-- Notifikasi -->
             <?php if (isset($notif)) : ?>
@@ -40,7 +40,8 @@ if (isset($_POST['btnlogin'])) {
             <?php endif; ?>
             <!-- // Notifikasi // -->
 
-            <h4 class="text-bold">Login</h4>
+            <h4 class="text-bold text-muted bg-light py-2">🍿 Login</h4>
+
             <div class="input-group mb-3">
                 <input type="email" class="form-control" name="email_log" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
             </div>
@@ -55,5 +56,4 @@ if (isset($_POST['btnlogin'])) {
 </div>
 </form>
 
-</body>
-</html>
+<?php require_once 'partial/footer.php'; ?>

@@ -82,4 +82,4 @@ if (isset($_GET['page'])) {
 </div>
 
 
-<?php require_once 'partial/footer.php';
+<?php require_once 'partial/footer.php'; ?>

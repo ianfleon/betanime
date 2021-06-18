@@ -86,7 +86,7 @@ function addVideo($info, $video) {
             ('', '$judul', '$genre', '$sinopsis', '$nama_thumb', '$nama_video', '$user') ";
 
     if ($v['status_upload']) {
-        queryDB($query);
+        return queryDB($query);
     }
 
 }
