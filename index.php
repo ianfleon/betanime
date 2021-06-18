@@ -68,7 +68,7 @@ if (isset($_GET['page'])) {
         <? $v['nama_user'] ?>
         <div class="col-md-3 mb-3">
             <div class="card">
-                <img src="http://localhost/videoaja/static/thumbnails/<?= $v['id_user']?>/<?= $v['thumb_video'] ?>" class="card-img-top" alt="...">
+                <img src="<?= BASE_URL ?>/static/thumbnails/<?= $v['id_user']?>/<?= $v['thumb_video'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <a href="nonton.php?v=<?= $v['id_video'] ?>" class="card-title"><?= $v['judul'] ?></a>
                     <p class="card-text text-muted">Upload By : <?= $v['nama_user'] ?></p>
