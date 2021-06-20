@@ -2,7 +2,7 @@
     
 <footer class="footer">
     <p>Betanime, 2021. Dibuat dengan ❤️
-        <a href="pesan.php" class="text-muted">Butuh Bantuan? Hubungi kami.</a>
+        <a href="<?= BASE_URL ?>/pesan.php" class="text-muted">Butuh Bantuan? Hubungi kami.</a>
     </p>
 </footer>
 </div>
