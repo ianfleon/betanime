@@ -5,8 +5,8 @@ require_once('config/handler.php'); // fungsi utama
 // query
 $query = "SELECT * FROM video_tbl INNER JOIN user_tbl ON video_tbl.id_user = user_tbl.id_user WHERE status_video = 1 ORDER BY id_video DESC";
 
-$total_data = 12; // total data yang tampil
 $page_active = 1; // halaman aktif
+$total_data = 12; // total data yang tampil
 
 $hasil = getDataByPage($query, $page_active, $total_data); // ambil data
 $videos = $hasil['data']; // data video
@@ -15,7 +15,7 @@ $total_halaman = $hasil['total_halaman']; // total halaman
 
 $url_page = 'page'; // url default pagination
 
-// cek url 'cari'
+/* Cari */
 if (isset($_GET['cari'])) {
 
     $keyword = $_GET['cari']; // berisi keyword
@@ -42,8 +42,10 @@ if (isset($_GET['cari'])) {
 
 }
 
-// cek url 'page'
+/* Page */
 if (isset($_GET['page'])) {
+
+    $page_active = $_GET['page']; // berupa halaman aktif
 
     // hasil query
     $hasil = getDataByPage($query, $page_active, $total_data);
@@ -59,11 +61,13 @@ if (isset($_GET['page'])) {
 
 ?>
 
+<!-- ++ Header -->
 <?php require_once 'partial/head.php'; ?>
 
 <div class="container-fluid mt-3">
     <div class="row">
 
+        <!-- ++ Looping Data Video -->
         <?php foreach($videos as $v) : ?>
         <? $v['nama_user'] ?>
         <div class="col-md-3 mb-3">
@@ -79,7 +83,10 @@ if (isset($_GET['page'])) {
     
     </div>
 
+<!-- ++ Pagination -->
+<?php require_once 'partial/page.php'; ?>
+
 </div>
 
-
+<!-- ++ Footer -->
 <?php require_once 'partial/footer.php'; ?>

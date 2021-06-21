@@ -1,15 +1,16 @@
 <?php
 
+/* Cek Login */
 session_start();
 
 if (!isset($_SESSION['admin_logined'])) {
     header('Location: ..');
 }
 
-require_once '../config/handler.php';
+require_once '../config/handler.php'; // fungsi utama
 
+/* Logout */
 if (isset($_GET['auth'])) {
-
   if ($_GET['auth'] === 'logout') {
       logout();
   }
@@ -45,6 +46,14 @@ if (isset($_POST['simpan'])) {
 
 }
 
+/* Hapus Video */
+if (isset($_GET['hapus'])) {
+    if (hapusVideo($_GET['hapus']) > 0) {
+        header("Refresh:0; url='index.php'");
+    }
+}
+
+
 $page_active = 1;
 $total_data = 12;
 $url_page = 'page';
@@ -68,11 +77,13 @@ $hasil_pesan = getDataByPage($query_pesan, $page_active, $total_data);
 // Total Halaman
 $total_halaman = $hasil_req['total_halaman'];
 
+/* Page */
 if (isset($_GET['page'])) {
   $page_active = $_GET['page'];
   $hasil_req = getDataByPage($query_req, $page_active, $total_data);
 }
 
+/* View Halaman */
 if (isset($_GET['view'])) {
   if ($_GET['view'] == 'users') {
       $url_page = 'view=users&&page';
@@ -89,13 +100,11 @@ if (isset($_GET['view'])) {
   }
 }
 
-$video_user = $hasil_req['data'];
+$video_user = $hasil_req['data']; // data video
 
-$total_req = queryGet("SELECT * FROM video_tbl WHERE status_video = 0 ORDER BY id_video DESC");
+$total_req = queryGet("SELECT * FROM video_tbl WHERE status_video = 0 ORDER BY id_video DESC"); // semua video baru
 
-$pesan_baru = queryGet("SELECT * FROM pesan_tbl WHERE status_baca = '0'");
-
-// var_dump($total_halaman);
+$pesan_baru = queryGet("SELECT * FROM pesan_tbl WHERE status_baca = '0'"); // semua pesan baru
 
 ?>
 
@@ -106,8 +115,8 @@ $pesan_baru = queryGet("SELECT * FROM pesan_tbl WHERE status_baca = '0'");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="<?= BASE_URL ?>/static/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="<?= BASE_URL ?>/static/css/style.css"/>
 
@@ -146,6 +155,7 @@ $pesan_baru = queryGet("SELECT * FROM pesan_tbl WHERE status_baca = '0'");
 
         <!-- Side Content -->
         <div class="col-md-9">
+          
           <!-- Views -->
           <?php
 

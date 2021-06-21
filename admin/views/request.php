@@ -6,12 +6,6 @@ if (isset($_GET['acc'])) {
     }
 }
 
-if (isset($_GET['hapus'])) {
-    if (hapusVideo($_GET['hapus']) > 0) {
-        header("Refresh:0; url='index.php'");
-    }
-}
-
 ?>
 
 <?php if (count($video_user) > 0) : ?>
