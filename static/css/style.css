@@ -25,9 +25,11 @@ nav.navbar {
 a.card-title {
     font-size: 18px;
     text-decoration: none;
+    color: #3d3d3e;
 }
 
 a.card-title:hover {
+    color: #184f9b;
     text-decoration: underline;
 }
 
@@ -35,6 +37,7 @@ a.card-title:hover {
     background-color: #fff;
     border: none;
 }
+
 
 /* Footer */
 .footer {

@@ -75,7 +75,7 @@ if (isset($_GET['page'])) {
                 <img src="<?= BASE_URL ?>/static/thumbnails/<?= $v['id_user']?>/<?= $v['thumb_video'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <a href="nonton.php?v=<?= $v['id_video'] ?>" class="card-title"><?= $v['judul'] ?></a>
-                    <p class="card-text text-muted">Upload By : <?= $v['nama_user'] ?></p>
+                    <p class="card-text text-muted fs-6">Upload By : <?= $v['nama_user'] ?></p>
                 </div>
             </div>
         </div>
