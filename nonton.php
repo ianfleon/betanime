@@ -62,14 +62,14 @@ $title = $video['judul'];
     <div class="row">
         <div class="col-md-8 m-auto">
             <div class="card">
-                <p class="mx-3 mt-2">
-                    <?php foreach($genre as $g) : ?>
-                    <span class="badge bg-dark"><?= $g ?></span>
-                    <?php endforeach; ?>
-                </p>
                 <video src="videos/<?= $video['id_user'] ?>/<?= $video['nama_video'] ?>" controls></video>
                 <div class="card-body">
                     <h5 class="card-title"><b><?= $video['judul'] ?></b></h5>
+                    <p>
+                        <?php foreach($genre as $g) : ?>
+                        <span class="badge bg-dark"><?= $g ?></span>
+                        <?php endforeach; ?>
+                    </p>
                     <p class="card-text text-muted"><?= $video['sinopsis'] ?></p>
                     <a href="nonton.php?v=<?= $id ?>&&download" class="btn btn-primary">Download</a>
                 </div>
