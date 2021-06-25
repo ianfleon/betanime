@@ -62,7 +62,7 @@ $title = $video['judul'];
     <div class="row">
         <div class="col-md-8 m-auto">
             <div class="card">
-                <p>
+                <p class="mx-3 mt-2">
                     <?php foreach($genre as $g) : ?>
                     <span class="badge bg-dark"><?= $g ?></span>
                     <?php endforeach; ?>
