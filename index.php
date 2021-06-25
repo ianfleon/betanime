@@ -71,7 +71,7 @@ if (isset($_GET['page'])) {
         <?php foreach($videos as $v) : ?>
         <? $v['nama_user'] ?>
         <div class="col-md-3 mb-3">
-            <div class="card">
+            <div class="card shadow">
                 <img src="<?= BASE_URL ?>/static/thumbnails/<?= $v['id_user']?>/<?= $v['thumb_video'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <a href="nonton.php?v=<?= $v['id_video'] ?>" class="card-title"><?= $v['judul'] ?></a>
