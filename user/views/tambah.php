@@ -25,17 +25,17 @@ if (isset($_POST['upload'])) {
     }
 </script>
 
-        <!-- Notifikasi -->
-        <?php if (isset($notif)) : ?>
-            <div class="alert alert-<?= $notif['alert'] ?>" role="alert">
-                <?= $notif['pesan'] ?>
-                <?php
-                    header("Refresh: 2; url='index.php'");
-                    die();
-                ?>
-            </div>
-        <?php endif; ?>
-        <!-- // Notifikasi // -->
+<!-- Notifikasi -->
+<?php if (isset($notif)) : ?>
+    <div class="alert alert-<?= $notif['alert'] ?>" role="alert">
+        <?= $notif['pesan'] ?>
+        <?php
+            header("Refresh: 2; url='index.php'");
+            die();
+        ?>
+    </div>
+<?php endif; ?>
+<!-- // Notifikasi // -->
 
 <form action="" method="POST" enctype="multipart/form-data" class="shadow p-3 rounded">
     <div class="mb-3">

@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_GET['acc'])) {
-    if (accVideo($_GET['acc']) > 0) {
+    if (accVideo($_GET['acc'], $_GET['idu']) > 0) {
         header("Refresh:0; url='index.php'");
     }
 }
@@ -32,8 +32,10 @@ if (isset($_GET['acc'])) {
         </div>
         <div class="aksi">
             <a href="?view=demo&&cek=<?= $v['id_video'] ?>" class="aksi-item"><img src="../static/icons/lihat.svg"></a>
-            <a href="#" class="aksi-item"><img src="../static/icons/check.svg" onclick="confirm('Yakin diterima?') ? window.location = '<?= $_SERVER['REQUEST_URI'] ?>&&acc=<?= $v['id_video'] ?>' : false"></a>
-            <a href="#" class="aksi-item"><img src="../static/icons/cancel.svg" onclick="confirm('Ingin hapus permintaan?') ? window.location = '?hapus=<?= $v['id_video'] ?>' : false"></a>
+
+            <a href="#" class="aksi-item"><img src="../static/icons/check.svg" onclick="confirm('Yakin diterima?') ? window.location = '<?= $_SERVER['REQUEST_URI'] ?>&&acc=<?= $v['id_video'] ?>&&idu=<?= $v['id_user'] ?>' : false"></a>
+
+            <a href="#" class="aksi-item"><img src="../static/icons/cancel.svg" onclick="confirm('Ingin hapus permintaan?') ? window.location = '?hapus=<?= $v['id_video'] ?>&&idu=<?= $v['id_user'] ?>' : false"></a>
         </div>
     </div>
     <?php endforeach; ?>

@@ -22,7 +22,6 @@
         </div>
         <div class="aksi">
             <a href="?view=demo&&cek=<?= $v['id_video'] ?>" class="aksi-item"><img src="../static/icons/lihat.svg"></a>
-            <a href="#" class="aksi-item"><img src="../static/icons/cancel.svg" onclick="confirm('Ingin hapus permintaan?') ? window.location = '?hapus=<?= $v['id_video'] ?>' : false"></a>
         </div>
     </div>
     <?php endforeach; ?>

@@ -1,44 +1,23 @@
 <?php
 
-$id_user = $_SESSION['user_login_id'];
-$nama_user = $_SESSION['user_login_name'];
-
-$page_active = 1;
-$total_data = 12;
-
-/* Ambil data video berdasarkan id_user */
-$query = "SELECT * FROM video_tbl WHERE id_user = '$id_user'";
-
-if (isset($_GET['status'])) {
-    
-    $status = $_GET['status'];
-
-    if ($status == 0) {
-        $query = "SELECT * FROM video_tbl WHERE id_user = '$id_user' AND status_video = '0'";
-    } elseif ($status == 1) {
-        $query = "SELECT * FROM video_tbl WHERE id_user = '$id_user' AND status_video = '1'";
-    }
-
-}
-
-if (isset($_GET['page'])) {
-    $page_active = $_GET['page'];
-}
-
-/* Query ke db */
-$hasil = getDataByPage($query, $page_active, $total_data);
-
-/* Hasil Query */
-$video_user = $hasil['data'];
-$total_halaman = $hasil['total_halaman'];
-
-$url_page = 'page';
-
 if (isset($_GET['status'])) {
     $url_page = 'status=' . $_GET['status'] . '&&page';
 }
 
 ?>
+
+<?php if (count($video_user) > 0) : ?>
+    <?php
+        if (isset($_GET['status'])) {
+            if ($_GET['status'] == 1) {
+                $txt = "Diterima";
+            } elseif ($_GET['status'] == 0) {
+                $txt = "Diproses";
+            }
+        }
+    ?>
+    <h5 class="text-muted">Semua Video <?= (isset($txt)) ? "[$txt]" : "" ?> :</h5>
+<?php endif; ?>
 
 <div class="list-group mb-3">
 

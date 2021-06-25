@@ -116,11 +116,37 @@ function editVideo($info, $img) {
 
 }
 
-function accVideo($id_video) {
-    $query = "UPDATE video_tbl SET status_video = 1 WHERE id_video = '$id_video'";
-    return queryDB($query);
+function accVideo($id_video, $id_user) {
+
+    $v = queryGet("SELECT * FROM video_tbl WHERE id_video = '$id_video'");
+
+    $pesan = $v[0]["judul"];
+
+    $acc = queryDB("UPDATE video_tbl SET status_video = '1' WHERE id_video = '$id_video'");
+
+    if ($acc > 0) {
+        queryDB("INSERT INTO notif_tbl VALUES (null, '$pesan', null, '1', '0', '$id_user')");
+    }
+
+    return $acc;
+
 }
 
-function hapusVideo($id_video) {
-    return queryDB("DELETE FROM video_tbl WHERE id_video = '$id_video'");
+function hapusVideo($id_video, $id_user = null) {
+
+    $v = queryGet("SELECT * FROM video_tbl WHERE id_video = '$id_video'");
+
+    $pesan = $v[0]["judul"];
+
+    $dcc = queryDB("DELETE FROM video_tbl WHERE id_video = '$id_video'");
+
+    if ($id_user != null) {
+        if ($dcc > 0) {
+            queryDB("INSERT INTO notif_tbl VALUES (null, '$pesan', null, '0', '0', '$id_user')");
+        }
+    }
+
+
+    return $dcc;
+
 }

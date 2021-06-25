@@ -48,7 +48,7 @@ if (isset($_POST['simpan'])) {
 
 /* Hapus Video */
 if (isset($_GET['hapus'])) {
-    if (hapusVideo($_GET['hapus']) > 0) {
+    if (hapusVideo($_GET['hapus'], $_GET['idu']) > 0) {
         header("Refresh:0; url='index.php'");
     }
 }
