@@ -1,2 +1,2 @@
 # Betanime
-#### Versi 0
+#### Versi 1.0
